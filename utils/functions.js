@@ -13,6 +13,7 @@ const clearFields = () => {
 const clearLocalStorage = () => {
     clearFields();
     localStorage.clear();
+    document.querySelector("#table-body").innerHTML = "";  // needed to be here to properly clear the table only when button is clicked
     updateUI();
 }
 
