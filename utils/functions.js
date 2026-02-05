@@ -3,7 +3,15 @@ import  BudgetItem  from "../classes/BudgetItem.js"
 const addItemButton = document.querySelector("#add-item-button");
 const deleteDataButton = document.querySelector("#delete-data-button");
 
+const clearFields = () => {
+    document.querySelector("#income-budget-toggle").unchecked;
+    document.querySelector("#budget-type-selector").value = "";
+    document.querySelector("#amount-input").value = "";
+    document.querySelector("#note-input").value = "";
+}
+
 const clearLocalStorage = () => {
+    clearFields();
     localStorage.clear();
     updateUI();
 }
@@ -21,6 +29,7 @@ const setBudgetItemData = () => {
     localStorage.setItem("amount", budgetItem.amount);
     localStorage.setItem("note", budgetItem.note);
 
+    clearFields();
     updateUI();
 }
 
