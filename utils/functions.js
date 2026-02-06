@@ -42,10 +42,10 @@ const loadTableData = () => {
 
         document.querySelector("#table-body").innerHTML += `
         <tr>
-            <td>${todayDate.getMonth() + 1}/${todayDate.getDate()}/${todayDate.getFullYear()}</td>
-            <td>${budgetItemLSObject.category}</td>
-            <td>${budgetItemLSObject.note}</td>
-            <td class="w-1/4 text-right ${budgetItemLSObject.isIncome ? 'text-green-600' : 'text-red-600'}">${budgetItemLSObject.isIncome ? '+' : '-'}$${parseFloat(budgetItemLSObject.amount).toFixed(2)}</td>
+            <td class="w-2/5 text-left">${todayDate.getMonth() + 1}/${todayDate.getDate()}/${todayDate.getFullYear()}</td>
+            <td class="w-2/5 text-left">${budgetItemLSObject.category}</td>
+            <td class="w-2/5 text-left">${budgetItemLSObject.note}</td>
+            <td class="w-2/4 text-right ${budgetItemLSObject.isIncome ? 'text-green-600' : 'text-red-600'}">${budgetItemLSObject.isIncome ? '+' : '-'}$${parseFloat(budgetItemLSObject.amount).toFixed(2)}</td>
             </tr>
         `;
     }
@@ -56,10 +56,10 @@ const addTableData = () => {
     const todayDate = new Date();
     document.querySelector("#table-body").innerHTML += `
         <tr>
-            <td>${todayDate.getMonth() + 1}/${todayDate.getDate()}/${todayDate.getFullYear()}</td>
-            <td>${document.querySelector("#category-selector").value}</td>
-            <td>${document.querySelector("#note-input").value}</td>
-            <td class="w-1/4 text-right ${document.querySelector("#income-budget-toggle").checked ? 'text-green-600' : 'text-red-600'}">${document.querySelector("#amount-input").value}</td>
+            <td class="w-2/5 text-left">${todayDate.getMonth() + 1}/${todayDate.getDate()}/${todayDate.getFullYear()}</td>
+            <td class="w-2/5 text-left">${document.querySelector("#category-selector").value}</td>
+            <td class="w-2/5 text-left">${document.querySelector("#note-input").value}</td>
+            <td class="w-2/4 text-right ${document.querySelector("#income-budget-toggle").checked ? 'text-green-600' : 'text-red-600'}">${document.querySelector("#amount-input").value}</td>
         </tr>
     `;
 }
