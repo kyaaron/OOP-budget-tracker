@@ -82,21 +82,25 @@ const setBudgetItemData = () => {
     const amountInputValue = document.querySelector("#amount-input").value;
     const noteInputValue = document.querySelector("#note-input").value;
     
-    const budgetItem = new BudgetItem(incomeBudgetToggleValue, categorySelectorValue, noteInputValue, amountInputValue);
+    if (!categorySelectorValue || !amountInputValue || !noteInputValue) {
+        alert("You need to fill in all the budget data. Please check your data.");
+    } else {
+        const budgetItem = new BudgetItem(incomeBudgetToggleValue, categorySelectorValue, noteInputValue, amountInputValue);
     
-    const budgetItemObjectString = JSON.stringify({
-        "isIncome": budgetItem.income,
-        "category": budgetItem.category,
-        "amount": budgetItem.amount,
-        "note": budgetItem.note
-    });
+        const budgetItemObjectString = JSON.stringify({
+            "isIncome": budgetItem.income,
+            "category": budgetItem.category,
+            "amount": budgetItem.amount,
+            "note": budgetItem.note
+        });
 
-    localStorage.setItem(localStorage.length, budgetItemObjectString);
+        localStorage.setItem(localStorage.length, budgetItemObjectString);
 
-    addValueToDashboard(budgetItem, amountInputValue);
-    addTableData();
-    clearFields();
-    updateUI();
+        addValueToDashboard(budgetItem, amountInputValue);
+        addTableData();
+        clearFields();
+        updateUI();
+    }
 }
 
 // Function that updates the UI. This is called on submit, clear, and document load
